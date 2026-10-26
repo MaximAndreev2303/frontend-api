@@ -7,10 +7,14 @@ type Props = {
 function PostCard({ post }: Props) {
   return (
     <div className="post-card">
-      <span className="category">{post.category}</span>
+      {/* Обращаемся к полю name у категории, если оно есть */}
+      <span className="category">{post.category?.name || 'Без категорії'}</span>
+      
       <h2>{post.title}</h2>
       <p>{post.content}</p>
-      <small>Автор: {post.author}</small>
+      
+      {/* Обращаемся к полю email у автора, если оно есть */}
+      <small>Автор: {post.author?.email || 'Невідомий'}</small>
     </div>
   );
 }
